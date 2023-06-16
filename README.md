@@ -22,6 +22,24 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Building the Image for the Container
+To build the Docker image for the backend, execute the following command in the project root:
+
+```docker build -t docker_frontend .```
+
+This will build the image with the name docker_backend using the provided Dockerfile.
+
+## Running the Container
+To run the Docker container for the backend, use the following command:
+
+```docker run --name docker_frontend -d -p 4200:4200 docker_frontend```
+
+This will start a container with the name docker_backend using the previously built docker_backend image. The application inside the container will run on port 4200, which will be mapped to port 4200 on the host.
+
+Make sure that the required ports are not being used by other applications on your machine.
+
+Now you can build the Docker image and run the container to run your application's backend. Enjoy!
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

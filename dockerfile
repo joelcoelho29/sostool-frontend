@@ -1,10 +1,9 @@
+FROM node:14
 
-FROM maven:3.6.3-jdk-11-slim AS build
-FROM openjdk:11
-COPY src /home/app/src
-COPY pom.xml /home/app
-COPY target /home/app/target
+COPY . /home/app
 
-WORKDIR /home/app/target
+WORKDIR ./home/app
+EXPOSE 4200
+RUN npm install
 
-CMD ["java", "-jar", "sostool-backend-0.0.1-SNAPSHOT.jar"]
+CMD ["npm", "run", "start"]
